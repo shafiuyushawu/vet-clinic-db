@@ -78,10 +78,6 @@
 
 > N/A
 
-- [Live Demo Link](<replace-with-your-deployment-URL>)
-
-> N/A
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
