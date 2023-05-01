@@ -19,6 +19,7 @@ SELECT * FROM animals;
 BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
 UPDATE animals SET species = 'pokemon' WHERE species = 'unspecified';
+SELECT * FROM animals;
 COMMIT;
 SELECT * FROM animals;
 
@@ -31,6 +32,7 @@ BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 SAVEPOINT before_weight_update;
 UPDATE animals SET weight_kg = weight_kg * -1;
+SELECT * FROM animals;
 ROLLBACK TO before_weight_update;
 UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
@@ -38,11 +40,8 @@ SELECT * FROM animals;
 
 
 SELECT COUNT(*) FROM animals;
-
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
-
 SELECT AVG(weight_kg) FROM animals;
-
 SELECT species, MIN(weight_kg), MAX(weight_kg)
 FROM animals
 GROUP BY species;
