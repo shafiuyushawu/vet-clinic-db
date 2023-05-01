@@ -9,6 +9,7 @@ SELECT name from animals WHERE neutered=true;
 SELECT * from animals WHERE name <> 'Gabumon';
 SELECT * from animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
+-- query and update animals tables
 BEGIN;
 UPDATE animals SET species = 'unspecified';
 SELECT * FROM animals;
@@ -45,7 +46,7 @@ SELECT AVG(weight_kg) FROM animals;
 SELECT species, MIN(weight_kg), MAX(weight_kg)
 FROM animals
 GROUP BY species;
-
+select neutered,sum(escape_attempts) as sum from animals GROUP BY neutered;
 SELECT species, AVG(escape_attempts) AS avg_escape_attempts
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
