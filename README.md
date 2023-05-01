@@ -88,7 +88,6 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -96,55 +95,33 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
+Install Postgres SQL
+> [Postgress SQL download](https://www.postgresql.org/download/)
 
-```sh
- gem install rails
-```
- -->
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
-  cd vet-clinic 
   git clone https://github.com/shafiuyushawu/vet-clinic-db
+  cd vet-clinic 
 ```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd vet-clinic
-  gem install
-```
---->
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
 
 ```sh
-  rails server
-```
---->
+  psql -u postgres
+ ```
+
+ > Enter your password and continue with sql commands.
 
 ### Run tests
 
-To run tests, run the following command:
+To run tests, run the following command: N/A
 
 <!--
 Example command:
