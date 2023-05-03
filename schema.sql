@@ -12,8 +12,8 @@ CREATE TABLE animals (
 );
 
 -- owners table 
-create table owners (
-    id int generated always as identity,
+CREATE TABLE owners (
+    id int GENERATED ALWAYS as identity,
     full_name varchar(255) not null,
     age int not null
 );
@@ -25,7 +25,8 @@ create table species (
 );
 
 -- modify the animal table
-alter table animals 
-    drop constraint if exists animals_pkey;
-alter table animals 
-    alter column id add generated always as identity primary key;
+alter table animals alter column id set not null;
+
+alter table animals alter column id add generated always as identity;
+
+alter table animals alter delete column species;

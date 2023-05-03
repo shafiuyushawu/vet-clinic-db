@@ -50,3 +50,9 @@ SELECT species, AVG(escape_attempts) AS avg_escape_attempts
 FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
+
+
+INSERT INTO contacts(customer_id, contact_me, phone, email)
+VALUES(1,'John Doe','(408)-111-1234','john.doe@bluebird.dev'),
+      (1,'Jane Doe','(408)-111-1235','jane.doe@bluebird.dev'),
+      (2,'David Wright','(408)-222-1234','david.wright@dolphin.dev');
