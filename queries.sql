@@ -121,4 +121,37 @@ join vet on visits.vet_id = vet.id
 where vet.name like 'Stephanie Mendez'
 and visits.visits_date between '2020-04-01' and '2020-08-30';
 
+-- What animal has the most visits to vets?
+select animals.name, count(visits.animal_id) from animals
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id
+group by animals.name
+order by count desc limit 1;
 
+-- Who was Maisy Smith's first visit?
+select animals.name, vet.name as vet_name, visits.visits_date from animals
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id
+where vet.name like 'Maisy Smith'
+order by visits.visits_date limit 1;
+
+-- Details for most recent visit: animal information, vet information, and date of visit.
+select animals.name as animal_name, vet.name as vet_name, visits.visits_date from animals
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id 
+order by visits.visits_date desc limit 1;
+
+-- How many visits were with a vet that did not specialize in that animal's species?
+select count(*) from animals 
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id 
+join specialties on vet.id = specialties.vet_id
+join species on specialties.species_id = species.id
+where animals.species_id != species.id;
+
+-- What specialty should Maisy Smith consider getting? Look for the species she gets the most.
+select species.name, count(*) from animals 
+join visits on animals.id = visits.animal_id 
+join vet on visits.vet_id = vet.id 
+join species on animals.species_id = species.id 
+group by species.name;
