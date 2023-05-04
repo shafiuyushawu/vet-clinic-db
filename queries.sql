@@ -93,3 +93,7 @@ select owners.full_name as full_name,count(*) as count from animals
 join owners on animals.owners_id=owners.id
 group by owners.full_name
 order by count DESC;
+
+-- add join table for visits
+
+-- who was the last animal seen by William Tatchers?
