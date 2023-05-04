@@ -97,3 +97,28 @@ order by count DESC;
 -- add join table for visits
 
 -- who was the last animal seen by William Tatchers?
+select animals.name as animal_name, vet.name as vet_name, visits.visits_date from animals
+join  visits on  visits.animal_id = animals.id
+join vet on vet.id = visits.vet_id
+where vet.name like 'William Tatcher'
+order by visits.visits_date desc limit 1;
+
+-- How many different animals did Stephanie Mendez see?
+select count(distinct animals.name) from animals
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id
+where vet.name like 'Stephanie Mendez';
+
+-- List all vets and their specialties, including vets with no specialties.
+select * from vet 
+left join specialties on vet.id = specialties.vet_id
+left join species on species.id = specialties.species_id;
+
+-- List all animals that visited Stephanie Mendez between April 1st and August 30th, 2020.
+select animals.name, visits.visits_date from animals
+join visits on animals.id = visits.animal_id
+join vet on visits.vet_id = vet.id
+where vet.name like 'Stephanie Mendez'
+and visits.visits_date between '2020-04-01' and '2020-08-30';
+
+
