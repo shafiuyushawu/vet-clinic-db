@@ -36,12 +36,12 @@ alter table animals add constraint fk_species foreign key(species_id) references
 alter table animals add column owners_id int;
 alter table animals add constraint fk_owners foreign key(owners_id) references owners(id);
 
-create table vets (
+create table vet (
     id int generated always as identity primary key not null,
     name varchar(255) not null,
     age int not null,
     date_of_graduation date not null
-)
+);
 
 -- many-to-many relationship between the tables species and vets
 drop table if exists specialties;
@@ -65,3 +65,11 @@ create table visits (
     constraint fk_vet_visited
         foreign key (vet_id) references vet(id)
 );
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+-- creating index on animal_id
+create index animal_count_index on visits (animal_id asc);
+create index visit_vet_id_index on visits(vet_id asc);
+create index owner_email_index on owners(email asc);
