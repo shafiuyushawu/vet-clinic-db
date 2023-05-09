@@ -45,3 +45,11 @@ create table medical_histories_treatment (
     constraint fk_medical_histories foreign key(medical_history_id) references medical_histories(id),
     constraint fk_treatments foreign key(treatment_id) references treatments(id)
 );
+
+-- Create indexes to improve query execution time
+create index medical_histories_patients_id ON medical_histories(patient_id);
+create index invoices_medical_histories_id ON invoices(medical_history_id);
+create index fk_invoice_item_invoices_id ON invoice_items(invoice_id);
+create index fk_invoice_item_treatment_id ON invoice_items(treatment_id);
+create index fk_medical_histories_treatment_id ON medical_histories_treatment(medical_history_id);
+create index fk_treatments_id ON medical_histories_treatment(treatment_id);
